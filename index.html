@@ -1,0 +1,603 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title>Test</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/wwwroot/lib/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/scss/style.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:300,400&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+    <script src="/wwwroot/lib/angular/angular.js"></script>
+    <script src="/wwwroot/lib/angular-aria/angular-aria.js"></script>
+    <script src="/wwwroot/lib/angular-animate/angular-animate.js"></script>
+    <script src="/wwwroot/lib/angular-material/angular-material.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    
+</head>
+<body ng-controller="AppCtrl">
+    <header layout="column">
+        <md-toolbar layout="row" class="toolbar">
+            <a href="#"><img class="logo" src="img/logo.png"></a>
+        </md-toolbar>
+        <md-menu-bar class="md-whiteframe-z2">
+            <!--<button ng-click="toggleSidenav('left')" hide-gt-sm class="menuBtn" aria-label="Toggle Menu">menu</button>-->
+            <md-menu>
+                <md-button class="navBtn" ng-click="$mdOpenMenu($event)">
+                    Флэш-игры
+                </md-button>
+                <md-menu-content class="munuContent" width="6">
+                    <md-menu-item ng-repeat="item in [1, 2, 3]">
+                        <md-button>
+                            Option {{item}}
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu md-offset="0 40">
+                <md-button class="navBtn" ng-click="$mdOpenMenu($event)">
+                    Online игры
+                </md-button>
+                <md-menu-content class="munuContent" width="6">
+                    <md-menu-item ng-repeat="item in [1, 2, 3]">
+                        <md-button>
+                            Option {{item}}
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu md-offset="0 40">
+                <md-button class="navBtn" ng-click="$mdOpenMenu($event)">
+                    Браузерные
+                </md-button>
+                <md-menu-content class="munuContent" width="6">
+                    <md-menu-item ng-repeat="item in [1, 2, 3]">
+                        <md-button>
+                            Option {{item}}
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu md-offset="0 40">
+                <md-button class="navBtn" ng-click="$mdOpenMenu($event)">
+                    Клиентские
+                </md-button>
+                <md-menu-content class="munuContent" width="6">
+                    <md-menu-item ng-repeat="item in [1, 2, 3]">
+                        <md-button>
+                            Option {{item}}
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu md-offset="0 40">
+                <md-button class="navBtn" ng-click="$mdOpenMenu($event)">
+                    Соцсети
+                </md-button>
+                <md-menu-content class="munuContent" width="6">
+                    <md-menu-item ng-repeat="item in [1, 2, 3]">
+                        <md-button>
+                            Option {{item}}
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu md-offset="0 40">
+                <md-button class="navBtn" ng-click="$mdOpenMenu($event)">
+                    Мини-игры
+                </md-button>
+                <md-menu-content class="munuContent" width="6">
+                    <md-menu-item ng-repeat="item in [1, 2, 3]">
+                        <md-button>
+                            Option {{item}}
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+
+            <!--<form action="" method="post" class="search">
+                <input type="search" name="" placeholder="search" class="input" />
+                <input type="submit" name="" value="" class="submit" />
+            </form>-->
+        </md-menu-bar>
+
+    </header>
+    <!--<div class="slider">
+        Slider
+    </div>-->
+    <div class="container" layout="row">
+        <md-sidenav layout="column" layout-align="start end" class="sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+            <div class="login">
+                <md-button class="logBtn md-whiteframe-z2">
+                    Войти
+                </md-button>
+            </div>
+            <md-list class="iisGamesMenu">
+                <md-list-item layout-align="space-between center" ng-repeat="li in list">
+                    <md-button class="sidenavBtn">{{li.name}}</md-button>
+                    <!--<span flex></span>-->
+                    <a class="count" href="#">77</a>
+                </md-list-item>
+            </md-list>
+            <md-list class="allCateg">
+                <md-list-item layout-align="space-between center" ng-repeat="li in list2">
+                    <md-button class="sidenavBtn">{{li.name}}</md-button>
+                    <!--<span flex></span>-->
+                    <a class="count" href="#">77</a>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+        <section flex>
+            <div class="background md-whiteframe-z2">
+                <div class="bgText">
+                    <h1>Лучшие игры online</h1>
+                    <h3>Регистрируйся <br>и получай бонус!</h3>
+                    <div class="club">club</div>
+                </div>
+                
+            </div>
+
+        <div class="iisgamesWrap">
+            <h3>Игры IIS Club</h3>
+            <hr color="#3dc2fa" width="100%" />
+            <div class="iisgames"> 
+                <md-content class="content1" layout="row" layout-wrap>
+                    <md-card class="card1">
+                        <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">The game</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p hide-sm hide-xs>
+                                Icon action buttons
+                            </p>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button class="md-icon-button" aria-label="Settings">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Share">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+
+                    <md-card class="card1">
+                        <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">The game</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p hide-sm hide-xs>
+                                Icon action buttons
+                            </p>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button class="md-icon-button" aria-label="Settings">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Share">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+
+                    <md-card class="card1">
+                        <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">The game</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p hide-sm hide-xs>
+                                Icon action buttons
+                            </p>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button class="md-icon-button" aria-label="Settings">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Share">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+
+                    <md-card class="card1">
+                        <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">The game</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p hide-sm hide-xs>
+                                Icon action buttons
+                            </p>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button class="md-icon-button" aria-label="Settings">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Share">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+                    <md-card class="card1">
+                        <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">The game</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p hide-sm hide-xs>
+                                Icon action buttons
+                            </p>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button class="md-icon-button" aria-label="Settings">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Share">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+
+                    <md-card class="card1">
+                        <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">The game</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p hide-sm hide-xs>
+                                Icon action buttons
+                            </p>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button class="md-icon-button" aria-label="Settings">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Share">
+                                <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+                </md-content>
+            </div>
+        </div>
+
+            <div class="hitsWrap">
+                <div class="hits">
+                    <h3>Хиты</h3>
+                    <md-content class="content2" layout="row" layout-wrap>
+                        <md-card class="card1">
+                            <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">The game</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p hide-sm hide-xs>
+                                    Icon action buttons
+                                </p>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Share">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card>
+
+                        <md-card class="card1">
+                            <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">The game</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p hide-sm hide-xs>
+                                    Icon action buttons
+                                </p>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Share">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card>
+
+                        <md-card class="card1">
+                            <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">The game</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p hide-sm hide-xs>
+                                    Icon action buttons
+                                </p>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Share">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card>
+
+                        <md-card class="card1">
+                            <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">The game</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p hide-sm hide-xs>
+                                    Icon action buttons
+                                </p>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Share">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card>
+
+                        <md-card class="card1">
+                            <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">The game</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p hide-sm hide-xs>
+                                    Icon action buttons
+                                </p>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Share">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card>
+
+                        <md-card class="card1">
+                            <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">The game</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p hide-sm hide-xs>
+                                    Icon action buttons
+                                </p>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Share">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card>
+
+                        <md-card class="card1">
+                            <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">The game</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p hide-sm hide-xs>
+                                    Icon action buttons
+                                </p>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Share">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card>
+
+                        <md-card class="card1">
+                            <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">The game</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p hide-sm hide-xs>
+                                    Icon action buttons
+                                </p>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Share">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card>
+
+                        <md-card class="card1">
+                            <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">The game</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p hide-sm hide-xs>
+                                    Icon action buttons
+                                </p>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Share">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card>
+
+                        <md-card class="card1">
+                            <img src="img/washedout.png" class="md-card-image" alt="Washed Out">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">The game</span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p hide-sm hide-xs>
+                                    Icon action buttons
+                                </p>
+                            </md-card-content>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button" aria-label="Settings">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Share">
+                                    <md-icon md-svg-icon="wwwroot\lib\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card>
+
+
+                    </md-content>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+    <div class="socials" layout>
+        <div class="socialsWrapp">
+            <md-button class="md-fab" aria-label="Eat cake">
+                <md-icon md-svg-src="\wwwroot\lib\angular-material\demos\icon\demoSvgIconSets\assets\social-icons.svg"></md-icon>
+            </md-button>
+            <md-button class="md-fab" aria-label="Eat cake">
+                <md-icon md-svg-src="\wwwroot\lib\angular-material\demos\icon\demoSvgIconSets\assets\social-icons.svg"></md-icon>
+            </md-button>
+            <md-button class="md-fab" aria-label="Eat cake">
+                <md-icon md-svg-src="\wwwroot\lib\angular-material\demos\icon\demoSvgIconSets\assets\social-icons.svg"></md-icon>
+            </md-button>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright">
+            2016 all rights seserved
+        </div>
+        <div class="footerMenu">
+            <ul>
+                <li>
+                    <md-button>
+                        Партнерам
+                    </md-button>
+                </li>
+                <li>
+                    <md-button>
+                        Контактная информация
+                    </md-button>
+                </li>
+                <li>
+                    <md-button>
+                        техподдержка
+                    </md-button>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        var app = angular.module('MyApp', ['ngMaterial']);
+        app.controller('AppCtrl', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+            $scope.toggleSidenav = function (menuId) {
+                $mdSidenav(menuId).toggle();
+            };
+
+            var list = [
+                { name: 'iis club' },
+                { name: 'слоты' },
+                { name: 'лотереи' },
+                { name: 'карточные' },
+                { name: 'букмекерка' },
+                { name: 'аукционы' }    
+            ];
+            var list2 = [
+                { name: 'все категории' },
+                { name: 'квесты' },
+                { name: 'драки' },
+                { name: 'гонки' },
+                { name: 'бродилки' },
+                { name: 'азартные' },
+                { name: 'аркады' },
+                { name: 'рпг' },
+                { name: 'детские' },
+                { name: 'стратегии' },
+                { name: 'шутеры' },
+                { name: 'настольные' },
+                { name: 'симуляторы' },
+                { name: 'космос' },
+                { name: 'танцевальные' },
+                { name: 'пираты' },
+                { name: 'бизнес' },
+                { name: 'экономические' },
+                { name: 'исторические' },
+                { name: 'для девочек' },
+                { name: 'война' },
+                { name: 'шахматы' },
+                { name: 'шашки' },
+                { name: 'логические' },
+                { name: 'головоломки' },
+                { name: 'пасьянсы' }
+            ];
+            $scope.list = list;
+            $scope.list2 = list2;
+        }]);
+
+
+
+    </script>
+</body>
+   
+</html>
